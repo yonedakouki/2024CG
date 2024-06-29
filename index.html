@@ -70,24 +70,24 @@
     var windowMaterial = new THREE.MeshStandardMaterial({ color: 0x87CEEB });
 
     var window1 = new THREE.Mesh(windowGeometry, windowMaterial);
-    window1.position.set(-1.5, 0.5, 2); // 一階の左側に配置
+    window1.position.set(-1, 0.3, 2); // 一階の左側に配置
     houseGroup.add(window1);
 
     var window2 = new THREE.Mesh(windowGeometry, windowMaterial);
-    window2.position.set(1.5, 0.5, 2); // 一階の右側に配置
+    window2.position.set(1, 0.3, 2); // 一階の右側に配置
     houseGroup.add(window2);
 
     var window3 = new THREE.Mesh(windowGeometry, windowMaterial);
-    window3.position.set(-0.5, 0.1, -2); // 一階の後ろ側に配置
+    window3.position.set(-0.8, 0.1, -2); // 一階の後ろ側に配置
     houseGroup.add(window3);
 
     var window4 = new THREE.Mesh(windowGeometry, windowMaterial);
-    window4.position.set(0.5, 0.1, -2); // 一階の後ろ側に配置
+    window4.position.set(0.8, 0.1, -2); // 一階の後ろ側に配置
     houseGroup.add(window4);
 
     // 大きい窓の幅を調整
-    window1.scale.set(1.2, 1.2, 1); // 幅と高さを2倍に拡大
-    window2.scale.set(1.2, 1.2, 1);
+    window1.scale.set(1.3, 1.3, 1); // 幅と高さを2倍に拡大
+    window2.scale.set(1.3, 1.3, 1);
     window3.scale.set(1.5, 1.8, 1);
     window4.scale.set(1.5, 1.8, 1);
     
