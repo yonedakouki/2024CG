@@ -58,7 +58,7 @@
     var doorMaterial = new THREE.MeshPhongMaterial({ color: 0x654321 });
     var door = new THREE.Mesh(doorGeometry, doorMaterial);
     door.position.set(0, 1, 2.05);
-    scene.add(door);
+    houseGroup.add(door);
 
     // 窓を作成
     var windowGeometry = new THREE.BoxGeometry(1, 1, 0.1);
