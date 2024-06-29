@@ -104,6 +104,12 @@
     var railing1 = new THREE.Mesh(railingGeometry, railingMaterial);
     var railing2 = new THREE.Mesh(railingGeometry, railingMaterial);
 
+    // ベランダの柵の位置調整
+    railing1.position.set(0, 2.15, 2.5); // ベランダの正面
+    railing2.position.set(0, 2.15, 1.5); // ベランダの正面
+    houseGroup.add(railing1);
+    houseGroup.add(railing2);
+
     // 煙突を追加
     var chimneyGeometry = new THREE.BoxGeometry(0.3, 1.4, 0.3);
     var chimneyMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
