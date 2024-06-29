@@ -99,20 +99,24 @@
     houseGroup.add(balcony);
 
     // 柵（レイリング）を追加
-    var railingGeometry = new THREE.BoxGeometry(2.8, 0.3, 0.05);
+    var railingGeometry = new THREE.BoxGeometry(2.8, 0.4, 0.05);
     var railingMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
     var railing1 = new THREE.Mesh(railingGeometry, railingMaterial);
+   
+    // ベランダの柵の位置調整
+    railing1.position.set(0, 2.15, 2.5);
+    houseGroup.add(railing1);
+
+    var railingGeometry = new THREE.BoxGeometry(0.1, 0.4, 1.3);
+    var railingMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
     var railing2 = new THREE.Mesh(railingGeometry, railingMaterial);
     var railing3 = new THREE.Mesh(railingGeometry, railingMaterial);
 
-    // ベランダの柵の位置調整
-    railing1.position.set(0, 2.15, 2.5);
-    railing2.position.set(-1.5, 2.65, 2.5);
-    railing3.position.set(1.5, 2.65, 2.5);
-    houseGroup.add(railing1);
+    railing2.position.set(-1.5, 2.15, 2.5);
+    railing3.position.set(1.5, 2.15, 2.5);
     houseGroup.add(railing2);
     houseGroup.add(railing3);
-
+    
     // 煙突を追加
     var chimneyGeometry = new THREE.BoxGeometry(0.3, 1.4, 0.3);
     var chimneyMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
