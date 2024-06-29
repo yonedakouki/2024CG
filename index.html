@@ -33,23 +33,23 @@ const light = new THREE.SpotLight(0xffffff, 400, 100, Math.PI / 4, 1);
 light.castShadow = true;
 scene.add(light);
 
-    // 平行光源
-    //var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    //directionalLight.position.set(5, 10, 5);
-    //directionalLight.castShadow = true; // 影を投影する
-    //scene.add(directionalLight);
+    平行光源
+    var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 10, 5);
+    directionalLight.castShadow = true; // 影を投影する
+    scene.add(directionalLight);
 
     // 環境光
     var ambientLight = new THREE.AmbientLight(0x404040, 1);
     scene.add(ambientLight);
 
     // 床を作成
-const meshFloor = new THREE.Mesh(
-  new THREE.BoxGeometry(2000, 0.1, 2000),
-  new THREE.MeshStandardMaterial());
-// 影を受け付ける
-meshFloor.receiveShadow = true;
-scene.add(meshFloor);
+    const meshFloor = new THREE.Mesh(
+    new THREE.BoxGeometry(2000, 0.1, 2000),
+    new THREE.MeshStandardMaterial());
+    // 影を受け付ける
+    meshFloor.receiveShadow = true;
+    scene.add(meshFloor);
 
     // 家のグループを作成
     var houseGroup = new THREE.Group();
