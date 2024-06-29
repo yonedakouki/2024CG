@@ -70,7 +70,7 @@
     var roofGeometry = new THREE.ConeGeometry(3, 1.5, 4);
     var roofMaterial = new THREE.MeshStandardMaterial({ color: 0x800000 });
     var roof = new THREE.Mesh(roofGeometry, roofMaterial);
-    roof.position.y = 5.3; // 二階の上に配置
+    roof.position.y = 4.3; // 二階の上に配置
     roof.rotation.y = Math.PI / 4; // 45度回転
     roof.castShadow = true;
     houseGroup.add(roof);
@@ -79,7 +79,7 @@
     var doorGeometry = new THREE.BoxGeometry(0.5, 1, 0.1);
     var doorMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 });
     var door = new THREE.Mesh(doorGeometry, doorMaterial);
-    door.position.set(0, -0.5, 2); // 一階の正面に配置
+    door.position.set(0, 0.5, 2); // 一階の正面に配置
     door.castShadow = true;
     houseGroup.add(door);
 
@@ -88,22 +88,22 @@
     var windowMaterial = new THREE.MeshStandardMaterial({ color: 0x87CEEB });
 
     var window1 = new THREE.Mesh(windowGeometry, windowMaterial);
-    window1.position.set(-1.1, 0.2, 2); // 一階の左側に配置
+    window1.position.set(-1.1, 1.2, 2); // 一階の左側に配置
     window1.castShadow = true;
     houseGroup.add(window1);
 
     var window2 = new THREE.Mesh(windowGeometry, windowMaterial);
-    window2.position.set(1.1, 0.2, 2); // 一階の右側に配置
+    window2.position.set(1.1, 1.2, 2); // 一階の右側に配置
     window2.castShadow = true;
     houseGroup.add(window2);
 
     var window3 = new THREE.Mesh(windowGeometry, windowMaterial);
-    window3.position.set(-0.7, 0, -2); // 一階の後ろ側に配置
+    window3.position.set(-0.7, 1, -2); // 一階の後ろ側に配置
     window3.castShadow = true;
     houseGroup.add(window3);
 
     var window4 = new THREE.Mesh(windowGeometry, windowMaterial);
-    window4.position.set(0.7, 0, -2); // 一階の後ろ側に配置
+    window4.position.set(0.7, 1, -2); // 一階の後ろ側に配置
     window4.castShadow = true;
     houseGroup.add(window4);
 
