@@ -70,7 +70,7 @@
     var roofGeometry = new THREE.ConeGeometry(3, 1.5, 4);
     var roofMaterial = new THREE.MeshStandardMaterial({ color: 0x800000 });
     var roof = new THREE.Mesh(roofGeometry, roofMaterial);
-    roof.position.y = 4.3; // 二階の上に配置
+    roof.position.y = 4.7; // 二階の上に配置
     roof.rotation.y = Math.PI / 4; // 45度回転
     roof.castShadow = true;
     houseGroup.add(roof);
