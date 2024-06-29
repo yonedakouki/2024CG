@@ -50,11 +50,33 @@
     roof.rotation.y = Math.PI / 4;
     scene.add(roof);
 
+    // 扉を作成
+    var doorGeometry = new THREE.BoxGeometry(1, 2, 0.1);
+    var doorMaterial = new THREE.MeshPhongMaterial({ color: 0x654321 });
+    var door = new THREE.Mesh(doorGeometry, doorMaterial);
+    door.position.set(0, 1, 2.05);
+    scene.add(door);
+
+    // 窓を作成
+    var windowGeometry = new THREE.BoxGeometry(1, 1, 0.1);
+    var windowMaterial = new THREE.MeshPhongMaterial({ color: 0x87CEEB });
+    
+    var window1 = new THREE.Mesh(windowGeometry, windowMaterial);
+    window1.position.set(-1.5, 2.5, 2.05);
+    scene.add(window1);
+
+    var window2 = new THREE.Mesh(windowGeometry, windowMaterial);
+    window2.position.set(1.5, 2.5, 2.05);
+    scene.add(window2);
+
     // アニメーションループを追加
     var animate = function() {
       requestAnimationFrame(animate);
       house.rotation.y += 0.01;
       roof.rotation.y += 0.01;
+      door.rotation.y += 0.01;
+      window1.rotation.y += 0.01;
+      window2.rotation.y += 0.01;
       renderer.render(scene, camera);
     };
 
