@@ -35,12 +35,15 @@
     var ambientLight = new THREE.AmbientLight(0x404040, 1);
     scene.add(ambientLight);
 
+　　// 家のグループを作成
+    var houseGroup = new THREE.Group();
+    
     // 家のベース部分を作成
     var houseGeometry = new THREE.BoxGeometry(4, 4, 4);
     var houseMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 });
     var house = new THREE.Mesh(houseGeometry, houseMaterial);
     house.position.y = 2;
-    scene.add(house);
+    houseGroup.add(house);
 
     // 屋根を作成
     var roofGeometry = new THREE.ConeGeometry(3.5, 2, 4);
@@ -48,8 +51,8 @@
     var roof = new THREE.Mesh(roofGeometry, roofMaterial);
     roof.position.y = 5;
     roof.rotation.y = Math.PI / 4;
-    scene.add(roof);
-
+    houseGroup.add(roof);
+    
     // 扉を作成
     var doorGeometry = new THREE.BoxGeometry(1, 2, 0.1);
     var doorMaterial = new THREE.MeshPhongMaterial({ color: 0x654321 });
@@ -63,20 +66,19 @@
     
     var window1 = new THREE.Mesh(windowGeometry, windowMaterial);
     window1.position.set(-1.5, 2.5, 2.05);
-    scene.add(window1);
+    houseGroup.add(window1);
 
     var window2 = new THREE.Mesh(windowGeometry, windowMaterial);
     window2.position.set(1.5, 2.5, 2.05);
-    scene.add(window2);
+    houseGroup.add(window2);
+
+    // 家のグループをシーンに追加
+    scene.add(houseGroup);
 
     // アニメーションループを追加
     var animate = function() {
       requestAnimationFrame(animate);
-      house.rotation.y += 0.01;
-      roof.rotation.y += 0.01;
-      door.rotation.y += 0.01;
-      window1.rotation.y += 0.01;
-      window2.rotation.y += 0.01;
+      houseGroup.rotation.y += 0.01;
       renderer.render(scene, camera);
     };
 
