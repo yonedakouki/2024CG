@@ -47,14 +47,14 @@
     var upperGeometry = new THREE.BoxGeometry(3, 2, 3);
     var upperMaterial = new THREE.MeshPhongMaterial({ color: 0xFFD700 });
     var upper = new THREE.Mesh(upperGeometry, upperMaterial);
-    upper.position.y = 2.5; // 一階の上に配置
+    upper.position.y = 2.1; // 一階の上に配置
     houseGroup.add(upper);
 
     // 屋根の部分
     var roofGeometry = new THREE.ConeGeometry(2, 1, 4);
     var roofMaterial = new THREE.MeshPhongMaterial({ color: 0x800000 });
     var roof = new THREE.Mesh(roofGeometry, roofMaterial);
-    roof.position.y = 3.5; // 二階の上に配置
+    roof.position.y = 7; // 二階の上に配置
     roof.rotation.y = Math.PI / 4; // 45度回転
     houseGroup.add(roof);
 
@@ -62,7 +62,7 @@
     var doorGeometry = new THREE.BoxGeometry(0.5, 1, 0.1);
     var doorMaterial = new THREE.MeshPhongMaterial({ color: 0x000000 });
     var door = new THREE.Mesh(doorGeometry, doorMaterial);
-    door.position.set(1.5, -0.5, 2); // 一階の正面に配置
+    door.position.set(0, -0.5, 2); // 一階の正面に配置
     houseGroup.add(door);
 
     // 窓を追加
@@ -80,6 +80,20 @@
     var window3 = new THREE.Mesh(windowGeometry, windowMaterial);
     window3.position.set(0, 0.5, -1.5); // 一階の後ろ側に配置
     houseGroup.add(window3);
+
+    // ベランダを追加
+    var balconyGeometry = new THREE.BoxGeometry(3, 0.2, 1);
+    var balconyMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 });
+    var balcony = new THREE.Mesh(balconyGeometry, balconyMaterial);
+    balcony.position.set(0, 2.5, 2.5); // 二階の前方に配置
+    houseGroup.add(balcony);
+
+    // 煙突を追加
+    var chimneyGeometry = new THREE.BoxGeometry(0.2, 1, 0.2);
+    var chimneyMaterial = new THREE.MeshPhongMaterial({ color: 0x808080 });
+    var chimney = new THREE.Mesh(chimneyGeometry, chimneyMaterial);
+    chimney.position.set(1, 5, 1); // 屋根の上に配置
+    houseGroup.add(chimney);
 
     // 家のグループをシーンに追加
     scene.add(houseGroup);
