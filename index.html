@@ -15,6 +15,7 @@
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
     renderer.setClearColor(0xeeeeee); // 背景色を薄い灰色に設定
+    renderer.shadowMap.enabled = true; // 影の有効化
     document.body.appendChild(renderer.domElement);
 
     // シーンを作成
@@ -29,6 +30,7 @@
     // 平行光源
     var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(5, 10, 5);
+    directionalLight.castShadow = true; // 影を投影する
     scene.add(directionalLight);
 
     // 環境光
@@ -37,11 +39,13 @@
 
     // 家のグループを作成
     var houseGroup = new THREE.Group();
+    houseGroup.castShadow = true; // 家のグループ自体も影を投影する
 
     // 一階の部分
     var baseGeometry = new THREE.BoxGeometry(4, 2, 4);
     var baseMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
     var base = new THREE.Mesh(baseGeometry, baseMaterial);
+    base.receiveShadow = true;
     houseGroup.add(base);
 
     // 二階の部分
@@ -49,6 +53,7 @@
     var upperMaterial = new THREE.MeshStandardMaterial({ color: 0xFFD700 });
     var upper = new THREE.Mesh(upperGeometry, upperMaterial);
     upper.position.y = 2.1; // 一階の上に配置
+    upper.receiveShadow = true;
     houseGroup.add(upper);
 
     // 屋根の部分
@@ -57,6 +62,7 @@
     var roof = new THREE.Mesh(roofGeometry, roofMaterial);
     roof.position.y = 4; // 二階の上に配置
     roof.rotation.y = Math.PI / 4; // 45度回転
+    roof.receiveShadow = true;
     houseGroup.add(roof);
 
     // 扉を追加
@@ -64,6 +70,7 @@
     var doorMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 });
     var door = new THREE.Mesh(doorGeometry, doorMaterial);
     door.position.set(0, -0.5, 2); // 一階の正面に配置
+    door.receiveShadow = true;
     houseGroup.add(door);
 
     // 窓を追加
@@ -72,18 +79,22 @@
 
     var window1 = new THREE.Mesh(windowGeometry, windowMaterial);
     window1.position.set(-1.1, 0.2, 2); // 一階の左側に配置
+    window1.receiveShadow = true;
     houseGroup.add(window1);
 
     var window2 = new THREE.Mesh(windowGeometry, windowMaterial);
     window2.position.set(1.1, 0.2, 2); // 一階の右側に配置
+    window2.receiveShadow = true;
     houseGroup.add(window2);
 
     var window3 = new THREE.Mesh(windowGeometry, windowMaterial);
     window3.position.set(-0.7, 0, -2); // 一階の後ろ側に配置
+    window3.receiveShadow = true;
     houseGroup.add(window3);
 
     var window4 = new THREE.Mesh(windowGeometry, windowMaterial);
     window4.position.set(0.7, 0, -2); // 一階の後ろ側に配置
+    window4.receiveShadow = true;
     houseGroup.add(window4);
 
     // 大きい窓の幅を調整
@@ -97,6 +108,7 @@
     var balconyMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
     var balcony = new THREE.Mesh(balconyGeometry, balconyMaterial);
     balcony.position.set(0, 2.1, 2); // 二階の前方に配置
+    balcony.receiveShadow = true;
     houseGroup.add(balcony);
 
     // 柵を追加
@@ -106,15 +118,18 @@
    
     // ベランダの柵の位置調整
     railing1.position.set(0, 2.3, 2.5);
+    railing1.receiveShadow = true;
     houseGroup.add(railing1);
 
-    var railingGeometry = new THREE.BoxGeometry(0.1, 0.4, 1.1);
+    var railingGeometry = new THREE.BoxGeometry(0.1, 0.4, 1);
     var railingMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
     var railing2 = new THREE.Mesh(railingGeometry, railingMaterial);
     var railing3 = new THREE.Mesh(railingGeometry, railingMaterial);
 
-    railing2.position.set(-1.45, 2.3, 1.9);
-    railing3.position.set(1.45, 2.3, 1.9);
+    railing2.position.set(-1.45, 2.3, 2);
+    railing2.receiveShadow = true;
+    railing3.position.set(1.45, 2.3, 2);
+    railing3.receiveShadow = true;
     houseGroup.add(railing2);
     houseGroup.add(railing3);
     
@@ -123,6 +138,7 @@
     var chimneyMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
     var chimney = new THREE.Mesh(chimneyGeometry, chimneyMaterial);
     chimney.position.set(1, 4.2, 1); // 屋根の上に配置
+    chimney.receiveShadow = true;
     houseGroup.add(chimney);
 
     // 家のグループをシーンに追加
