@@ -52,7 +52,7 @@
 
     // 一階の部分
     var baseGeometry = new THREE.BoxGeometry(4, 2, 4);
-    var baseMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
+    var baseMaterial = new THREE.MeshLambertMaterial({ color: 0x8B4513 });
     var base = new THREE.Mesh(baseGeometry, baseMaterial);
     base.position.y = 1; // 床の上に配置
     base.castShadow = true;
@@ -60,7 +60,7 @@
 
     // 二階の部分
     var upperGeometry = new THREE.BoxGeometry(3, 2, 3);
-    var upperMaterial = new THREE.MeshStandardMaterial({ color: 0xFFD700 });
+    var upperMaterial = new THREE.MeshLambertMaterial({ color: 0xFFD700 });
     var upper = new THREE.Mesh(upperGeometry, upperMaterial);
     upper.position.y = 3.1; // 一階の上に配置
     upper.castShadow = true;
@@ -77,7 +77,7 @@
 
     // 扉を追加
     var doorGeometry = new THREE.BoxGeometry(0.5, 1, 0.1);
-    var doorMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 });
+    var doorMaterial = new THREE.MeshLambertMaterial({ color: 0x000000 });
     var door = new THREE.Mesh(doorGeometry, doorMaterial);
     door.position.set(0, 0.5, 2); // 一階の正面に配置
     door.castShadow = true;
@@ -115,7 +115,7 @@
     
     // ベランダを追加
     var balconyGeometry = new THREE.BoxGeometry(2.8, 0.1, 1);
-    var balconyMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
+    var balconyMaterial = new THREE.MeshLambertMaterial({ color: 0x8B4513 });
     var balcony = new THREE.Mesh(balconyGeometry, balconyMaterial);
     balcony.position.set(0, 3.1, 2); // 二階の前方に配置
     balcony.castShadow = true;
@@ -123,7 +123,7 @@
 
     // 柵を追加
     var railingGeometry = new THREE.BoxGeometry(2.8, 0.4, 0.05);
-    var railingMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
+    var railingMaterial = new THREE.MeshLambertMaterial({ color: 0x808080 });
     var railing1 = new THREE.Mesh(railingGeometry, railingMaterial);
    
     // ベランダの柵の位置調整
@@ -132,7 +132,7 @@
     houseGroup.add(railing1);
 
     var railingGeometry = new THREE.BoxGeometry(0.1, 0.4, 1);
-    var railingMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
+    var railingMaterial = new THREE.MeshLambertMaterial({ color: 0x808080 });
     var railing2 = new THREE.Mesh(railingGeometry, railingMaterial);
     var railing3 = new THREE.Mesh(railingGeometry, railingMaterial);
 
@@ -145,7 +145,7 @@
     
     // 煙突を追加
     var chimneyGeometry = new THREE.BoxGeometry(0.3, 1.4, 0.3);
-    var chimneyMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
+    var chimneyMaterial = new THREE.MeshPhongMaterial({ color: 0x808080 });
     var chimney = new THREE.Mesh(chimneyGeometry, chimneyMaterial);
     chimney.position.set(1, 5.2, 1); // 屋根の上に配置
     chimney.castShadow = true;
