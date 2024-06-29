@@ -88,8 +88,8 @@
     // 大きい窓の幅を調整
     window1.scale.set(1.3, 1.1, 1); // 幅と高さを2倍に拡大
     window2.scale.set(1.3, 1.1, 1);
-    window3.scale.set(1.5, 1.3, 1);
-    window4.scale.set(1.5, 1.3, 1);
+    window3.scale.set(1.2, 1.5, 1);
+    window4.scale.set(1.2, 1.5, 1);
     
     // ベランダを追加
     var balconyGeometry = new THREE.BoxGeometry(2.8, 0.1, 1);
@@ -112,8 +112,8 @@
     var railing2 = new THREE.Mesh(railingGeometry, railingMaterial);
     var railing3 = new THREE.Mesh(railingGeometry, railingMaterial);
 
-    railing2.position.set(-1.45, 2.3, 3);
-    railing3.position.set(1.45, 2.3, 3);
+    railing2.position.set(-1.45, 2.3, 1.5);
+    railing3.position.set(1.45, 2.3, 1.5);
     houseGroup.add(railing2);
     houseGroup.add(railing3);
     
