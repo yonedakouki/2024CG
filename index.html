@@ -27,7 +27,7 @@
     camera.lookAt(0, 2, 0);
     scene.add(camera);
 
-    平行光源
+    //平行光源
     var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(5, 10, 5);
     directionalLight.castShadow = true; // 影を投影する
@@ -39,8 +39,9 @@
 
     // 床を作成
     const meshFloor = new THREE.Mesh(
-    new THREE.BoxGeometry(2000, 0.1, 2000),
-    new THREE.MeshStandardMaterial());
+      new THREE.BoxGeometry(2000, 0.1, 2000),
+      new THREE.MeshStandardMaterial()
+    );
     // 影を受け付ける
     meshFloor.receiveShadow = true;
     scene.add(meshFloor);
@@ -53,6 +54,7 @@
     var baseGeometry = new THREE.BoxGeometry(4, 2, 4);
     var baseMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
     var base = new THREE.Mesh(baseGeometry, baseMaterial);
+    base.position.y = 1; // 床の上に配置
     base.castShadow = true;
     houseGroup.add(base);
 
@@ -60,7 +62,7 @@
     var upperGeometry = new THREE.BoxGeometry(3, 2, 3);
     var upperMaterial = new THREE.MeshStandardMaterial({ color: 0xFFD700 });
     var upper = new THREE.Mesh(upperGeometry, upperMaterial);
-    upper.position.y = 2.1; // 一階の上に配置
+    upper.position.y = 3.1; // 一階の上に配置
     upper.castShadow = true;
     houseGroup.add(upper);
 
@@ -68,7 +70,7 @@
     var roofGeometry = new THREE.ConeGeometry(3, 1.5, 4);
     var roofMaterial = new THREE.MeshStandardMaterial({ color: 0x800000 });
     var roof = new THREE.Mesh(roofGeometry, roofMaterial);
-    roof.position.y = 4; // 二階の上に配置
+    roof.position.y = 5.3; // 二階の上に配置
     roof.rotation.y = Math.PI / 4; // 45度回転
     roof.castShadow = true;
     houseGroup.add(roof);
@@ -115,7 +117,7 @@
     var balconyGeometry = new THREE.BoxGeometry(2.8, 0.1, 1);
     var balconyMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
     var balcony = new THREE.Mesh(balconyGeometry, balconyMaterial);
-    balcony.position.set(0, 2.1, 2); // 二階の前方に配置
+    balcony.position.set(0, 3.1, 2); // 二階の前方に配置
     balcony.castShadow = true;
     houseGroup.add(balcony);
 
@@ -125,7 +127,7 @@
     var railing1 = new THREE.Mesh(railingGeometry, railingMaterial);
    
     // ベランダの柵の位置調整
-    railing1.position.set(0, 2.3, 2.5);
+    railing1.position.set(0, 3.3, 2.5);
     railing1.castShadow = true;
     houseGroup.add(railing1);
 
@@ -134,9 +136,9 @@
     var railing2 = new THREE.Mesh(railingGeometry, railingMaterial);
     var railing3 = new THREE.Mesh(railingGeometry, railingMaterial);
 
-    railing2.position.set(-1.45, 2.3, 2);
+    railing2.position.set(-1.45, 3.3, 2);
     railing2.castShadow = true;
-    railing3.position.set(1.45, 2.3, 2);
+    railing3.position.set(1.45, 3.3, 2);
     railing3.castShadow = true;
     houseGroup.add(railing2);
     houseGroup.add(railing3);
@@ -145,7 +147,7 @@
     var chimneyGeometry = new THREE.BoxGeometry(0.3, 1.4, 0.3);
     var chimneyMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
     var chimney = new THREE.Mesh(chimneyGeometry, chimneyMaterial);
-    chimney.position.set(1, 4.2, 1); // 屋根の上に配置
+    chimney.position.set(1, 5.2, 1); // 屋根の上に配置
     chimney.castShadow = true;
     houseGroup.add(chimney);
 
