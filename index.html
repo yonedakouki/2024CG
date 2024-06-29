@@ -27,12 +27,6 @@
     camera.lookAt(0, 2, 0);
     scene.add(camera);
 
-    // 照明を作成
-const light = new THREE.SpotLight(0xffffff, 400, 100, Math.PI / 4, 1);
-// ライトに影を有効にする
-light.castShadow = true;
-scene.add(light);
-
     平行光源
     var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(5, 10, 5);
