@@ -54,7 +54,7 @@
     var roofGeometry = new THREE.ConeGeometry(2, 1, 4);
     var roofMaterial = new THREE.MeshPhongMaterial({ color: 0x800000 });
     var roof = new THREE.Mesh(roofGeometry, roofMaterial);
-    roof.position.y = 7; // 二階の上に配置
+    roof.position.y = 4; // 二階の上に配置
     roof.rotation.y = Math.PI / 4; // 45度回転
     houseGroup.add(roof);
 
@@ -85,7 +85,7 @@
     var balconyGeometry = new THREE.BoxGeometry(3, 0.2, 1);
     var balconyMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 });
     var balcony = new THREE.Mesh(balconyGeometry, balconyMaterial);
-    balcony.position.set(0, 2.5, 2.5); // 二階の前方に配置
+    balcony.position.set(0, 2.5, 2); // 二階の前方に配置
     houseGroup.add(balcony);
 
     // 煙突を追加
